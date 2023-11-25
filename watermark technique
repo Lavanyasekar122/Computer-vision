@@ -1,0 +1,19 @@
+import cv2
+import numpy as np
+
+# Load an image
+img = cv2.imread("C:/Users/91956/Downloads/puppy")
+
+# Define a watermark (watermark size should be same as image size)
+watermark = np.ones((img.shape[0], img.shape[1], 3), dtype=np.uint8) * 255
+
+# Perform the watermark technique (multiply the watermark with the original image)
+rotated_img = cv2.multiply(img, watermark)
+
+# Display the original and rotated images
+cv2.imshow('Original Image', img)
+cv2.imshow('Rotated Image', rotated_img)
+
+# Wait for a key press and close the window
+cv2.waitKey(0)
+cv2.destroyAllWindows()
